@@ -1,3 +1,7 @@
+---
+agent: jarvis
+---
+
 # Orchestrate Command
 
 Sequential agent workflow for complex tasks.
