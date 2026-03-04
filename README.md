@@ -1,6 +1,8 @@
 **Language:** English | [繁體中文](docs/zh-TW/README.md)
 
-# Everything Claude Code
+# Jarvis Agent System
+Jarvis Agent System is a modular AI operating framework for building autonomous agents,
+tools, and workflows across local and cloud models.
 
 [![Stars](https://img.shields.io/github/stars/affaan-m/everything-claude-code?style=flat)](https://github.com/affaan-m/everything-claude-code/stargazers)
 [![Forks](https://img.shields.io/github/forks/affaan-m/everything-claude-code?style=flat)](https://github.com/affaan-m/everything-claude-code/network/members)
