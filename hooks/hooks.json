@@ -32,6 +32,18 @@
         ],
         "description": "Reminder before git push to review changes"
       },
+
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{try{const i=JSON.parse(d);const cmd=(i.tool_input?.command||'').trim();const risky=/(^|\\s)(rm\\s+-rf|sudo\\s+rm\\s+-rf|mkfs\\.|dd\\s+if=|shutdown\\b|reboot\\b|kill\\s+-9\\s+1\\b|:>\\s*\\/|chmod\\s+-R\\s+777|chown\\s+-R\\s+root|git\\s+reset\\s+--hard|git\\s+clean\\s+-fdx)(\\s|$)/i; if(risky.test(cmd)){console.error('[Hook] BLOCKED: Potentially destructive command');console.error('[Hook] Command:', cmd);console.error('[Hook] Ask the user for explicit confirmation and propose a safer alternative.');process.exit(2);} }catch{} console.log(d);});\""
+          }
+        ],
+        "description": "Block destructive shell commands unless explicitly confirmed by user"
+      },
+
       {
         "matcher": "Write",
         "hooks": [
