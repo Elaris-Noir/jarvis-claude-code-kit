@@ -605,3 +605,20 @@ These patterns compose well:
 | Continuous Claude | AnandChowdhary | credit: @AnandChowdhary |
 | NanoClaw | ECC | `/claw` command in this repo |
 | Verification Loop | ECC | `skills/verification-loop/` in this repo |
+
+---
+
+## Jarvis Integration
+
+Jarvis should use this skill whenever a task requires continuous development or iteration.
+
+Preferred execution loop:
+
+plan → build → verify → review → improve
+
+Jarvis should repeat this loop until:
+- the feature works
+- verification passes
+- no critical issues remain
+
+If verification fails, Jarvis must automatically fix issues and rerun the loop.
