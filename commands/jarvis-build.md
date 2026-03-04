@@ -187,3 +187,16 @@ Wait for results with `TaskOutput`. Integrate review feedback, execute optimizat
 1. Phase sequence cannot be skipped (unless user explicitly instructs)
 2. External models have **zero filesystem write access**, all modifications by Claude
 3. **Force stop** when score < 7 or user does not approve
+
+---
+
+## Mandatory Quality Gate (Verification Loop)
+
+After implementation and before finishing, Jarvis MUST run the verification loop:
+
+- Build verification
+- Typecheck
+- Unit tests (if available)
+- Lint (if available)
+
+If any step fails: stop and fix before proceeding.
