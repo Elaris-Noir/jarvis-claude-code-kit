@@ -18,3 +18,31 @@ Focus: Implementation, coding, building features
 - Edit, Write for code changes
 - Bash for running tests/builds
 - Grep, Glob for finding code
+
+---
+
+## Jarvis Project Memory (Developer)
+
+### Current Project
+- Project name:
+- Repo:
+- Primary goal:
+
+### Stack
+- Frontend:
+- Backend:
+- Database:
+- Auth:
+- Hosting/Deploy:
+
+### Conventions
+- Package manager:
+- Lint/format:
+- Test runner:
+- Branch strategy:
+
+### Decisions Log (append-only)
+- YYYY-MM-DD: Decision — Reason
+
+### Open Tasks (short list)
+- [ ] ...
