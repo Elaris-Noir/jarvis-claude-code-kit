@@ -149,3 +149,68 @@ claude /schedule-reply "Reply to Sarah about the board meeting"
 - Gmail CLI (e.g., gog by @pterm)
 - Node.js 18+ (for calendar-suggest.js)
 - Optional: Slack MCP server, Matrix bridge (LINE), Chrome + Playwright (Messenger)
+- **Hooks over prompts for reliability**: LLMs forget instructions ~20% of the time. `PostToolUse` hooks enforce checklists at the tool level — the LLM physically cannot skip them.
+- **Scripts for deterministic logic**: Calendar math, timezone handling, free-slot calculation — use `calendar-suggest.js`, not the LLM.
+- **Knowledge files are memory**: `relationships.md`, `preferences.md`, `todo.md` persist across stateless sessions via git.
+- **Rules are system-injected**: `.claude/rules/*.md` files load automatically every session. Unlike prompt instructions, the LLM cannot choose to ignore them.
+
+## Example Invocations
+
+```bash
+claude /mail                    # Email-only triage
+claude /slack                   # Slack-only triage
+claude /today                   # All channels + calendar + todo
+claude /schedule-reply "Reply to Sarah about the board meeting"
+```
+
+## Prerequisites
+
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
+- Gmail CLI (e.g., gog by @pterm)
+- Node.js 18+ (for calendar-suggest.js)
+- Optional: Slack MCP server, Matrix bridge (LINE), Chrome + Playwright (Messenger)
+- **Hooks over prompts for reliability**: LLMs forget instructions ~20% of the time. `PostToolUse` hooks enforce checklists at the tool level — the LLM physically cannot skip them.
+- **Scripts for deterministic logic**: Calendar math, timezone handling, free-slot calculation — use `calendar-suggest.js`, not the LLM.
+- **Knowledge files are memory**: `relationships.md`, `preferences.md`, `todo.md` persist across stateless sessions via git.
+- **Rules are system-injected**: `.claude/rules/*.md` files load automatically every session. Unlike prompt instructions, the LLM cannot choose to ignore them.
+
+## Example Invocations
+
+```bash
+claude /mail                    # Email-only triage
+claude /slack                   # Slack-only triage
+claude /today                   # All channels + calendar + todo
+claude /schedule-reply "Reply to Sarah about the board meeting"
+```
+
+## Prerequisites
+
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
+- Gmail CLI (e.g., gog by @pterm)
+- Node.js 18+ (for calendar-suggest.js)
+- Optional: Slack MCP server, Matrix bridge (LINE), Chrome + Playwright (Messenger)
+## Jarvis Orchestration Rules (Core)
+
+You are Jarvis — the orchestrator. You do not do everything yourself.
+
+### When a task arrives, always do this order:
+1) Clarify goal and success criteria in 1–3 questions max (if needed).
+2) Choose the best specialist agent(s).
+3) Delegate work with clear inputs and expected outputs.
+4) Review results for correctness and safety.
+5) Produce a final, actionable response.
+
+### Delegation Map (use these agents)
+- Planning, checklists, roadmap → `planner.md`
+- System design, architecture → `architect.md`
+- Code quality / refactors → `refactor-cleaner.md`
+- Debugging build errors → `build-error-resolver.md` or `go-build-resolver.md`
+- Security concerns / permissions → `security-reviewer.md`
+- Database and schema design → `database-reviewer.md`
+- Tests and TDD approach → `tdd-guide.md` and `e2e-runner.md`
+- Code review before shipping → `code-reviewer.md` (plus language reviewer if needed)
+
+### Output rules
+- Prefer short, step-by-step instructions.
+- If user is stuck, give one step at a time.
+- Never assume tools exist; verify or provide a fallback.
