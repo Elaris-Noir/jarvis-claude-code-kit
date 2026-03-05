@@ -1,0 +1,21 @@
+{
+  "goal": "",
+  "plan": [
+    {
+      "step": 1,
+      "task": "",
+      "agent": ""
+    }
+  ],
+  "changes": [
+    {
+      "file": "",
+      "summary": ""
+    }
+  ],
+  "verification": {
+    "tests_run": [],
+    "status": "pending"
+  },
+  "next_action": ""
+}
