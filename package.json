@@ -77,13 +77,19 @@
     "llms.txt"
   ],
   "bin": {
-    "ecc-install": "install.sh"
+    "ecc-install": "install.sh",
+    "jarvis": "bin/jarvis.js"
   },
   "scripts": {
     "postinstall": "echo '\\n  ecc-universal installed!\\n  Run: npx ecc-install typescript\\n  Docs: https://github.com/affaan-m/everything-claude-code\\n'",
     "lint": "eslint . && markdownlint '**/*.md' --ignore node_modules",
     "claw": "node scripts/claw.js",
     "test": "node scripts/ci/validate-agents.js && node scripts/ci/validate-commands.js && node scripts/ci/validate-rules.js && node scripts/ci/validate-skills.js && node scripts/ci/validate-hooks.js && node tests/run-all.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "apache-arrow": "^21.1.0",
+    "lancedb": "^0.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
