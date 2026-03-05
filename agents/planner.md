@@ -1,4 +1,28 @@
-# Implementation Plan: Stripe Subscription Billing
+## Output Format (MANDATORY)
+
+The planner must output a structured JSON plan using the agent handoff schema.
+
+Do not output paragraphs or explanations outside the JSON.
+
+Example format:
+
+```json
+{
+  "goal": "<user goal>",
+  "plan": [
+    {
+      "step": 1,
+      "task": "<specific task>",
+      "agent": "builder"
+    }
+  ],
+  "changes": [],
+  "verification": {
+    "tests_run": [],
+    "status": "pending"
+  },
+  "next_action": "builder executes plan"
+}# Implementation Plan: Stripe Subscription Billing
 
 ## Overview
 Add subscription billing with free/pro/enterprise tiers. Users upgrade via
